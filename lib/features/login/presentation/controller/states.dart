@@ -9,9 +9,9 @@ class GetLoginLoadingState extends LoginStates{}
 class ChangePasswordVisibility extends LoginStates{}
 
 class GetLoginSuccessState extends LoginStates{
-  final List<Item> login ;
+  final User user ;
 
-  GetLoginSuccessState(this.login);
+  GetLoginSuccessState(this.user);
 }
 
 class GetLoginErrorState extends LoginStates{
@@ -20,17 +20,3 @@ class GetLoginErrorState extends LoginStates{
   GetLoginErrorState(this.error);
 }
 
-class GetGalleryLoadingState extends LoginStates{}
-
-class GetGallerySuccessState extends LoginStates{
-  final List<Formdata> formdata;
-
-  GetGallerySuccessState(this.formdata);
-}
-
-class GetGalleryErrorState extends LoginStates
-{
-  final String error;
-
-  GetGalleryErrorState(this.error);
-}

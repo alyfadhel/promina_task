@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator().init();
-  token = sl<SharedPreferences>().getString('token');
+  //token = sl<SharedPreferences>().getString('token');
   runApp(const MyApp());
 }
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => sl<LoginCubit>()..getGallery(),
+      create: (context) => sl<LoginCubit>(),
       child: const MaterialApp(
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,

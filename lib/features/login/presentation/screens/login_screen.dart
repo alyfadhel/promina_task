@@ -6,7 +6,7 @@ import 'package:promina/core/resources/strings_manager.dart';
 import 'package:promina/core/services/service_locator.dart';
 import 'package:promina/features/login/presentation/controller/cubit.dart';
 import 'package:promina/features/login/presentation/controller/states.dart';
-import 'package:promina/features/login/presentation/screens/home_screen.dart';
+import 'package:promina/features/gallery/presentation/screens/home_screen.dart';
 import 'package:promina/features/login/widgets/auth_button.dart';
 import 'package:promina/features/login/widgets/text_form.dart';
 

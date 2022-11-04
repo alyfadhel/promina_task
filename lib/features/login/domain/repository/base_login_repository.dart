@@ -5,9 +5,8 @@ import 'package:promina/features/login/domain/entities/login_entity.dart';
 
 abstract class BaseLoginRepository
 {
-  Future<Either<Failure,List<Item>>>getLoginUser(UserLoginParameters parameters);
-
-  Future<Either<Failure,List<Formdata>>>getGallery();
+  Future<Either<Failure,User>>getLoginUser(UserLoginParameters parameters);
+  
 }
 
 class UserLoginParameters extends Equatable

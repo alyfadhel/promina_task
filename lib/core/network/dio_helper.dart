@@ -32,7 +32,7 @@ abstract class DioHelper {
 class DioHelperImpl implements DioHelper {
   final Dio dio = Dio(
     BaseOptions(
-      baseUrl: baseApiUrl,
+      baseUrl: '$baseApiUrl$version',
       receiveDataWhenStatusError: true,
       connectTimeout: 5000,
     ),

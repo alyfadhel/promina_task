@@ -6,8 +6,7 @@ import 'package:promina/features/login/domain/repository/base_login_repository.d
 
 abstract class BaseLoginRemoteDataSource
 {
-  Future<List<ItemModel>>getLoginUser(UserLoginParameters parameters);
-  Future<List<FormdataModel>>getGallery();
+  Future<UserModel>getLoginUser(UserLoginParameters parameters);
 }
 
 class LoginRemoteDataSource extends BaseLoginRemoteDataSource
@@ -16,26 +15,17 @@ class LoginRemoteDataSource extends BaseLoginRemoteDataSource
 
   LoginRemoteDataSource(this.dioHelper);
   @override
-  Future<List<ItemModel>> getLoginUser(UserLoginParameters parameters) async{
-    final response = await dioHelper.get(
-        endPoint: baseApiUrl,
+  Future<UserModel> getLoginUser(UserLoginParameters parameters) async{
+    final response = await dioHelper.post(
+        endPoint: login,
       data: {
           'email' : parameters.email,
           'password' : parameters.password,
       },
       token: token,
     );
-    return List<ItemModel>.from((response['item']as List)
-        .map((e) => ItemModel.fromJson(e)));
+    return UserModel.fromJson(response);
     }
 
-  @override
-  Future<List<FormdataModel>> getGallery() async{
-    final response = await dioHelper.get(
-        endPoint: baseApiUrl,
-    );
-    return List<FormdataModel>.from((response['body']as List)
-    .map((e) => FormdataModel.fromJson(e)));
-  }
   }
 

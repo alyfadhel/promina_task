@@ -11,10 +11,8 @@ import 'package:promina/features/login/presentation/controller/states.dart';
 class LoginCubit extends Cubit<LoginStates>
 {
   final GetUserLoginUseCase getUserLoginUseCase;
-  final GetGalleryUseCase galleryUseCase;
   LoginCubit(
       this.getUserLoginUseCase,
-      this.galleryUseCase,
       ) :super(InitialLoginState());
 
   static LoginCubit get(context)=>BlocProvider.of(context);
@@ -49,15 +47,5 @@ class LoginCubit extends Cubit<LoginStates>
     );
   }
 
-  List<Formdata> formData = [];
-  Future<void>getGallery()async
-  {
-    final result = await galleryUseCase(const NoParameters());
-
-    result.fold(
-            (l) => emit(GetGalleryErrorState(l.message)),
-            (r) => emit(GetGallerySuccessState(r)),
-    );
-  }
 
 }
